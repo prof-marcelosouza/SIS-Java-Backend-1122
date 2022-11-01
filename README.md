@@ -3,7 +3,9 @@
 
 <h3>Apostila</h3>
 <ul>
-  <li><strong>Java Backend 1.0</strong></li>
+  <li>
+  <strong>Java Backend 1.0: <a href="https://dnweb.com.br/restrictedarea/">Acessar</a></strong>
+  </li>
 </ul>  
 	
 <h3>Ferramentas - Downloads</h3>
