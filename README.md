@@ -4,7 +4,7 @@
 <h3>Apostila</h3>
 <ul>
   <li>
-  <strong><a href="https://dnweb.com.br/restrictedarea/">Java Backend 1.0</a>
+  <strong><a href="https://dnweb.com.br/restrictedarea/" target="_blank">Java Backend 1.0</a>
   </strong>
   </li>
 </ul>  
