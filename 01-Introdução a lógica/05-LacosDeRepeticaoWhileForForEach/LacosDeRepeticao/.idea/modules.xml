@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/05-LacosDeRepeticao.iml" filepath="$PROJECT_DIR$/05-LacosDeRepeticao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LacosDeRepeticao.iml" filepath="$PROJECT_DIR$/LacosDeRepeticao.iml" />
     </modules>
   </component>
 </project>
