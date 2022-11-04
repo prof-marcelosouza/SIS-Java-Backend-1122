@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/01-Introdução a lógica.iml" filepath="$PROJECT_DIR$/.idea/01-Introdução a lógica.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01-TiposDeDadosPrimitivosEWrappers/01-TiposDeDadosPrimitivosEWrappers.iml" filepath="$PROJECT_DIR$/01-TiposDeDadosPrimitivosEWrappers/01-TiposDeDadosPrimitivosEWrappers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02-ClasseScanner/02-ClasseScanner.iml" filepath="$PROJECT_DIR$/02-ClasseScanner/02-ClasseScanner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-EstruturasDeDecisao/03-EstruturasDeDecisao.iml" filepath="$PROJECT_DIR$/03-EstruturasDeDecisao/03-EstruturasDeDecisao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04-EstruturaSwitch/04-EstruturaSwitch.iml" filepath="$PROJECT_DIR$/04-EstruturaSwitch/04-EstruturaSwitch.iml" />
+    </modules>
+  </component>
+</project>
