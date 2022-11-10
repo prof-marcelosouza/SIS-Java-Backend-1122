@@ -29,5 +29,6 @@ public class Main {
         System.out.println("E-mail: " + p2.getEmail());
         System.out.println("Fone fixo: " + p2.getFoneFixo());
         System.out.println("Fone celular: " + p2.getFoneCel());
+
     }
 }
