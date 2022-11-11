@@ -1,6 +1,7 @@
 package entities;
 
 import java.time.Instant;
+import java.util.Objects;
 
 public class Produto {
 
@@ -82,7 +83,27 @@ public class Produto {
         this.dataCadastro = dataCadastro;
     }
 
+    // Métodos customizados
+
+    // Equals and hashcode
+
+
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Produto produto = (Produto) o;
+
+        return Objects.equals(id, produto.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
+
+    @Override // Significa que é uma SOBRESCRITA
     public String toString() {
         return "Produto{" +
                 "id=" + id +

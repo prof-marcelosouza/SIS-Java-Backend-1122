@@ -14,21 +14,32 @@ public class Main {
 //
 //        System.out.println(p2);
 
-        Produto p3 = new Produto();
-        p3.setId(3);
-        p3.setNome("Moto G");
-        p3.setDesc("Depreciado");
-        p3.setValor(552.0);
-        p3.setEstoque(10);
-        p3.setDataCadastro(Instant.now());
+//        Produto p3 = new Produto();
+//        p3.setId(3);
+//        p3.setNome("Moto G");
+//        p3.setDesc("Depreciado");
+//        p3.setValor(552.0);
+//        p3.setEstoque(10);
+//        p3.setDataCadastro(Instant.now());
+//
+//        System.out.println("Impressão do P3: ");
+//        System.out.println("Id: " + p3.getId());
+//        System.out.println("Nome: " + p3.getNome());
+//        System.out.println("Desc: " + p3.getDesc());
+//        System.out.println("Valor: " + p3.getValor());
+//        System.out.println("Estoque: " + p3.getEstoque());
+//        System.out.println("Data de cadastro: " + p3.getDataCadastro());
 
-        System.out.println("Impressão do P3: ");
-        System.out.println("Id: " + p3.getId());
-        System.out.println("Nome: " + p3.getNome());
-        System.out.println("Desc: " + p3.getDesc());
-        System.out.println("Valor: " + p3.getValor());
-        System.out.println("Estoque: " + p3.getEstoque());
-        System.out.println("Data de cadastro: " + p3.getDataCadastro());
+        Produto prod1 = new Produto(1, "Samsung 9", "desc", 1120.0, 55, Instant.now());
+
+        Produto prod2 = new Produto(1, "Samsung9", "desc", 1120.0, 55, Instant.now());
+
+//        System.out.println(prod1.equals(prod2));
+
+        System.out.println(prod1.getNome().hashCode());
+        System.out.println(prod2.getNome().hashCode());
+
+
 
     }
 }
