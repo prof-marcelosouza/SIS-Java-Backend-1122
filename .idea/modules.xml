@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01-Introdução a lógica/01-TiposDeDadosPrimitivosEWrappers/01-TiposDeDadosPrimitivosEWrappers.iml" filepath="$PROJECT_DIR$/01-Introdução a lógica/01-TiposDeDadosPrimitivosEWrappers/01-TiposDeDadosPrimitivosEWrappers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01-Introdução a lógica/02-ClasseScanner/02-ClasseScanner.iml" filepath="$PROJECT_DIR$/01-Introdução a lógica/02-ClasseScanner/02-ClasseScanner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02-Lista01/02-Lista01.iml" filepath="$PROJECT_DIR$/02-Lista01/02-Lista01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01-Introdução a lógica/03-EstruturasDeDecisao/03-EstruturasDeDecisao.iml" filepath="$PROJECT_DIR$/01-Introdução a lógica/03-EstruturasDeDecisao/03-EstruturasDeDecisao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01-Introdução a lógica/04-EstruturaSwitch/04-EstruturaSwitch.iml" filepath="$PROJECT_DIR$/01-Introdução a lógica/04-EstruturaSwitch/04-EstruturaSwitch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01-Introdução a lógica/05-LacosDeRepeticaoWhileForForEach/05-LacosDeRepeticaoWhileForForEach.iml" filepath="$PROJECT_DIR$/01-Introdução a lógica/05-LacosDeRepeticaoWhileForForEach/05-LacosDeRepeticaoWhileForForEach.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-Orientação a objetos/Compras/Compras.iml" filepath="$PROJECT_DIR$/03-Orientação a objetos/Compras/Compras.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-Orientação a objetos/Escola/Escola.iml" filepath="$PROJECT_DIR$/03-Orientação a objetos/Escola/Escola.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Java-22-23.iml" filepath="$PROJECT_DIR$/.idea/Java-22-23.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-Orientação a objetos/Loja/Loja.iml" filepath="$PROJECT_DIR$/03-Orientação a objetos/Loja/Loja.iml" />
+    </modules>
+  </component>
+</project>
