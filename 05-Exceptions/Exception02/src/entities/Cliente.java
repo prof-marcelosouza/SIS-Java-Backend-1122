@@ -1,5 +1,7 @@
 package entities;
 
+import exceptions.ClienteException;
+
 import java.util.Objects;
 
 public class Cliente {
@@ -77,9 +79,35 @@ public class Cliente {
     }
 
     // Métodos customizados
-    public void depositar(Double valor) {
-        saldoEmConta = saldoEmConta + valor;
+    public void depositar(Double valor) throws ClienteException {
+        if (valor <= 0.0) {
+            throw new ClienteException("Valor inválido para depósito!");
+        } else {
+            saldoEmConta = saldoEmConta + valor;
+        }
     }
+
+    public void comprar(Double valor) throws ClienteException {
+        if (saldoEmConta + limite < valor) {
+            throw new ClienteException("Saldo insuficiente!");
+        } else {
+            saldoEmConta = saldoEmConta - valor;
+        }
+    }
+
+    public void contrairDivida(Double valor) throws ClienteException {
+        if (valor <= 0.0) {
+            throw new ClienteException("Valor inválido!");
+        } else {
+            divida = divida + valor;
+            System.out.println("Você contratou uma dívida de R$" + divida);
+        }
+    }
+
+    public void pagarDivida(Double valor) throws ClienteException {
+        
+    }
+
 
     @Override
     public boolean equals(Object o) {
