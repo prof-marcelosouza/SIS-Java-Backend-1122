@@ -74,16 +74,13 @@ public class Cliente {
         return divida;
     }
 
-    public void setDivida(Double divida) {
-        this.divida = divida;
-    }
-
     // Métodos customizados
     public void depositar(Double valor) throws ClienteException {
         if (valor <= 0.0) {
             throw new ClienteException("Valor inválido para depósito!");
         } else {
             saldoEmConta = saldoEmConta + valor;
+            System.out.println("Saldo atualizado com depósito R$" + saldoEmConta);
         }
     }
 
@@ -92,6 +89,7 @@ public class Cliente {
             throw new ClienteException("Saldo insuficiente!");
         } else {
             saldoEmConta = saldoEmConta - valor;
+            System.out.println("Saldo atualizado com compra R$" + saldoEmConta);
         }
     }
 
@@ -105,9 +103,18 @@ public class Cliente {
     }
 
     public void pagarDivida(Double valor) throws ClienteException {
-        
+        if (getDivida() >= valor) {
+            divida = divida - valor;
+            System.out.println("Valor da dívida: R$" + divida);
+            System.out.println("Valor pago: R$" + valor);
+        } else {
+            throw new ClienteException("Você está tentando pagar um valor superior a dívida.");
+        }
     }
 
+    public void atualizarLimite(Double valor) throws ClienteException {
+        
+    }
 
     @Override
     public boolean equals(Object o) {
