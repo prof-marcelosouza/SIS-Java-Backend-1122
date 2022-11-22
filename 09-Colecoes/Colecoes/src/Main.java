@@ -1,6 +1,5 @@
 import java.awt.desktop.SystemEventListener;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
@@ -28,23 +27,52 @@ public class Main {
 //        }
 
         // Exemplo com a interface List
-        List ourList = new ArrayList<>();
-        ourList.add("Felipe");
-        ourList.add("Roberta");
-        ourList.add("Jorge");
-        ourList.add("Juliana");
-        ourList.add("Ricardo");
-        ourList.add("Jorge");
-        ourList.add("Marta");
-        ourList.add("Roberta");
+//        List ourList = new ArrayList<>();
+//        ourList.add("Felipe");
+//        ourList.add("Roberta");
+//        ourList.add("Jorge");
+//        ourList.add("Juliana");
+//        ourList.add("Ricardo");
+//        ourList.add("Jorge");
+//        ourList.add("Marta");
+//        ourList.add("Roberta");
+//
+//        System.out.println("List size: " + ourList.size());
+//
+//        System.out.println("Accessing the list with FOR:");
+//        for (int i = 0; i < ourList.size(); i++) {
+//            System.out.println(ourList.get(i));
+//        }
 
-        System.out.println("List size: " + ourList.size());
+        // Exemplo com a interface Set
+//        Set ourSet = new HashSet();
+//        ourSet.add("Brasil");
+//        ourSet.add("Argentina");
+//        ourSet.add("Uruguai");
+//        ourSet.add("Equador");
+//        ourSet.add("Suriname");
+//
+//        System.out.println("Accessing the list with FOREACH:");
+//        for (Object obj : ourSet) {
+//            System.out.println(obj);
+//        }
 
-        System.out.println("Accessing the list with FOR:");
-        for (int i = 0; i < ourList.size(); i++) {
-            System.out.println(ourList.get(i));
+        // Exemplo com a interface Map
+        Map categories = new HashMap();
+        categories.put(1, "Desktops");
+        categories.put(2, "Notebooks");
+        categories.put(3, "Tablets");
+        categories.put(4, "Celulares");
+        categories.put(5, "Acessórios");
+
+        System.out.println("Search for key three:");
+        System.out.println(categories.get(3));
+        System.out.println(categories.containsValue("Celulares"));
+
+        System.out.println("Accessing the Map with FOREACH:");
+        for (Object obj : categories.values()) {
+            System.out.println(obj);
         }
 
     }
-
 }
