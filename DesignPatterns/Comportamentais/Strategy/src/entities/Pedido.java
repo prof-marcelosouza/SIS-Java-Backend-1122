@@ -5,6 +5,7 @@ import java.util.Objects;
 public abstract class Pedido {
 
     private Double valor;
+    private Frete tipoFrete;
 
     public Pedido() {
     }
@@ -22,9 +23,13 @@ public abstract class Pedido {
     }
 
     // Métodos customizados
-    public abstract Double calcFreteComum();
+    public void setTipoFrete(Frete tipoFrete) {
+        this.tipoFrete = tipoFrete;
+    }
 
-    public abstract Double calcFreteExpresso() throws Exception;
+    public double calcularFrete() {
+        return this.tipoFrete.calcular(this.valor);
+    }
 
     @Override
     public boolean equals(Object o) {
