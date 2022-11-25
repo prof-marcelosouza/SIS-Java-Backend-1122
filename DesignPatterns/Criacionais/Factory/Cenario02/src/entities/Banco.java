@@ -6,23 +6,16 @@ import entities.types.Boleto60d;
 
 public class Banco {
 
+    // Para acessar o método criarBoleto
+    private BoletoSimpleFactory boletoSimpleFactory;
+
+    public Banco(BoletoSimpleFactory boletoSimpleFactory) {
+        this.boletoSimpleFactory = boletoSimpleFactory;
+    }
+
     public Boleto gerarBoleto(int venc, double valor) throws Exception {
 
-        Boleto boleto = null;
-
-        switch (venc) {
-            case 10:
-                boleto = new Boleto10d(valor);
-                break;
-            case 30:
-                boleto = new Boleto30d(valor);
-                break;
-            case 60:
-                boleto = new Boleto60d(valor);
-                break;
-            default:
-                throw new Exception("Vencimento inválido. Tente outra vez.");
-        }
+        Boleto boleto = this.boletoSimpleFactory.criarBoleto(venc, valor);
 
         System.out.println("Valor do boleto gerado: " + valor);
         System.out.println("Valor do juro: " + boleto.calcularJuro());

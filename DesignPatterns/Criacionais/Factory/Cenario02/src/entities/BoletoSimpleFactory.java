@@ -4,13 +4,13 @@ import entities.types.Boleto10d;
 import entities.types.Boleto30d;
 import entities.types.Boleto60d;
 
-public class Banco {
+public class BoletoSimpleFactory {
 
-    public Boleto gerarBoleto(int venc, double valor) throws Exception {
+    public Boleto criarBoleto(int vencimento, double valor) throws Exception {
 
         Boleto boleto = null;
 
-        switch (venc) {
+        switch (vencimento) {
             case 10:
                 boleto = new Boleto10d(valor);
                 break;
@@ -23,12 +23,6 @@ public class Banco {
             default:
                 throw new Exception("Vencimento inválido. Tente outra vez.");
         }
-
-        System.out.println("Valor do boleto gerado: " + valor);
-        System.out.println("Valor do juro: " + boleto.calcularJuro());
-        System.out.println("Valor do desconto: " + boleto.calcularDesconto());
-        System.out.println("Valor da multa: " + boleto.calcularMulta());
-        System.out.println("-------------------------------------------------");
 
         return boleto;
     }
