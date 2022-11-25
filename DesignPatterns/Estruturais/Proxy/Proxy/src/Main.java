@@ -22,7 +22,7 @@ public class Main {
         System.out.println("");
 
         Vacinar vacinar2 = new ServicoVacinarProxy();
-        vacinar.vacinarPessoa(p2.getRg(), p2.getDataVacina(), p2.getNomeVacina());
+        vacinar2.vacinarPessoa(p2.getRg(), p2.getDataVacina(), p2.getNomeVacina());
         System.out.println(p2.toString());
     }
 }
