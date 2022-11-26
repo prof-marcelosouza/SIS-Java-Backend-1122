@@ -9,17 +9,17 @@ public class Impressora {
     private String modelo;
     private String tipoConexao;
     private LocalDate dataFabricacao;
-    private Integer folhasDisponiveis;
+    private Integer folhaDisponivel;
 
     public Impressora() {
     }
 
-    public Impressora(Long id, String modelo, String tipoConexao, LocalDate dataFabricacao, Integer folhasDisponiveis) {
+    public Impressora(Long id, String modelo, String tipoConexao, LocalDate dataFabricacao, Integer folhaDisponivel) {
         this.id = id;
         this.modelo = modelo;
         this.tipoConexao = tipoConexao;
         this.dataFabricacao = dataFabricacao;
-        this.folhasDisponiveis = folhasDisponiveis;
+        this.folhaDisponivel = folhaDisponivel;
     }
 
     public Long getId() {
@@ -54,12 +54,12 @@ public class Impressora {
         this.dataFabricacao = dataFabricacao;
     }
 
-    public Integer getFolhasDisponiveis() {
-        return folhasDisponiveis;
+    public Integer getFolhaDisponivel() {
+        return folhaDisponivel;
     }
 
-    public void setFolhasDisponiveis(Integer folhasDisponiveis) {
-        this.folhasDisponiveis = folhasDisponiveis;
+    public void setFolhaDisponivel(Integer folhaDisponivel) {
+        this.folhaDisponivel = folhaDisponivel;
     }
 
     @Override
@@ -84,7 +84,7 @@ public class Impressora {
                 ", modelo='" + modelo + '\'' +
                 ", tipoConexao='" + tipoConexao + '\'' +
                 ", dataFabricacao=" + dataFabricacao +
-                ", folhasDisponiveis=" + folhasDisponiveis +
+                ", folhaDisponivel=" + folhaDisponivel +
                 '}';
     }
 }
