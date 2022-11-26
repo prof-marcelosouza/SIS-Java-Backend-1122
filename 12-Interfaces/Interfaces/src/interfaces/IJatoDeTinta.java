@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface InterfaceJatoDeTinta {
+public interface IJatoDeTinta {
 
     void imprimirJatoDeTinta();
 

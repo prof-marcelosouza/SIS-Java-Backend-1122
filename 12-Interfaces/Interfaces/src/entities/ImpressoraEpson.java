@@ -1,12 +1,12 @@
 package entities;
 
-import interfaces.InterfaceJatoDeTinta;
-import interfaces.InterfaceLaser;
-import interfaces.InterfaceMatricial;
+import interfaces.IJatoDeTinta;
+import interfaces.ILaser;
+import interfaces.IMatricial;
 
 import java.time.LocalDate;
 
-public class ImpressoraEpson extends Impressora implements InterfaceMatricial, InterfaceLaser, InterfaceJatoDeTinta {
+public class ImpressoraEpson extends Impressora implements IMatricial, ILaser, IJatoDeTinta {
 
     public ImpressoraEpson(Long id, String modelo, String tipoConexao, LocalDate dataFabricacao, Integer folhasDisponiveis) {
         super(id, modelo, tipoConexao, dataFabricacao, folhasDisponiveis);

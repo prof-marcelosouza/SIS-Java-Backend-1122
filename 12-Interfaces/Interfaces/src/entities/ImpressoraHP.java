@@ -1,10 +1,10 @@
 package entities;
 
-import interfaces.InterfaceJatoDeTinta;
+import interfaces.IJatoDeTinta;
 
 import java.time.LocalDate;
 
-public class ImpressoraHP extends Impressora implements InterfaceJatoDeTinta {
+public class ImpressoraHP extends Impressora implements IJatoDeTinta {
 
     public ImpressoraHP(Long id, String modelo, String tipoConexao, LocalDate dataFabricacao, Integer folhasDisponiveis) {
         super(id, modelo, tipoConexao, dataFabricacao, folhasDisponiveis);

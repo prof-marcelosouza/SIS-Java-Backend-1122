@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface InterfaceLaser {
+public interface ILaser {
 
     void imprimirLaser();
 

@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface InterfaceMatricial {
+public interface IMatricial {
 
     void imprimirMatricial();
 
