@@ -17,6 +17,10 @@ public class Album {
     @JoinColumn(name = "artista_id")
     private Artista artista;
 
+    @ManyToOne
+    @JoinColumn(name = "genero_id")
+    private Genero genero;
+
     public Album() {
     }
 
@@ -48,6 +52,22 @@ public class Album {
 
     public void setAno(Integer ano) {
         this.ano = ano;
+    }
+
+    public Artista getArtista() {
+        return artista;
+    }
+
+    public void setArtista(Artista artista) {
+        this.artista = artista;
+    }
+
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
     }
 
     @Override
