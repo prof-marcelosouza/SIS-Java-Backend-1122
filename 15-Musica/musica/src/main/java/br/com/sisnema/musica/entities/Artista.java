@@ -19,6 +19,14 @@ public class Artista {
     @JoinColumn(name = "pais_id")
     private Pais pais;
 
+    @ManyToOne
+    @JoinColumn(name = "estado_id")
+    private Estado estado;
+
+    @ManyToOne
+    @JoinColumn(name = "cidade_id")
+    private Cidade cidade;
+
     // Esse artista verde tem que ser igual ao atributo roxo do outro lado
     @OneToMany(mappedBy = "artista")
     private List<Album> albuns = new ArrayList<>();

@@ -3,6 +3,7 @@ package br.com.sisnema.musica.entities;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "tabela_pais")
@@ -51,7 +52,7 @@ public class Pais {
 
         Pais pais = (Pais) o;
 
-        return id != null ? id.equals(pais.id) : pais.id == null;
+        return Objects.equals(id, pais.id);
     }
 
     @Override

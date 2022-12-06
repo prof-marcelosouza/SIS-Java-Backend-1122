@@ -5,23 +5,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@Entity // Cria uma tabela via Spring Data
-@Table(name = "tabela_genero") // Renomeia Genero para tabela_genero
-public class Genero {
+@Entity
+@Table(name = "tabela_cidade")
+public class Cidade {
 
-    @Id // Campo definido como chave primária
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Autoincremento
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
 
-    // Esse genero verde tem que ser igual ao atributo roxo do outro lado
-    @OneToMany(mappedBy = "genero")
-    private List<Album> albuns = new ArrayList<>();
+    @OneToMany(mappedBy = "pais")
+    private List<Artista> artistas = new ArrayList<>();
 
-    public Genero() {
+    public Cidade() {
     }
 
-    public Genero(Long id, String nome) {
+    public Cidade(Long id, String nome) {
         this.id = id;
         this.nome = nome;
     }
@@ -42,8 +41,8 @@ public class Genero {
         this.nome = nome;
     }
 
-    public List<Album> getAlbuns() {
-        return albuns;
+    public List<Artista> getArtistas() {
+        return artistas;
     }
 
     @Override
@@ -51,9 +50,9 @@ public class Genero {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Genero genero = (Genero) o;
+        Cidade pais = (Cidade) o;
 
-        return Objects.equals(id, genero.id);
+        return Objects.equals(id, pais.id);
     }
 
     @Override
@@ -63,9 +62,10 @@ public class Genero {
 
     @Override
     public String toString() {
-        return "Genero{" +
+        return "Cidade{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
+                ", artistas=" + artistas +
                 '}';
     }
 }
