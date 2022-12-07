@@ -16,8 +16,8 @@ public class PaisDto {
     }
 
     public PaisDto(Pais entidade) {
-        this.id = id;
-        this.nome = nome;
+        this.id = entidade.getId();
+        this.nome = entidade.getNome();
     }
 
     public Long getId() {
