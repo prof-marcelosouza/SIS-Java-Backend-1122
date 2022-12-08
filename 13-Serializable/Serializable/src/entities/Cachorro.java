@@ -3,12 +3,12 @@ package entities;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Cachorro implements Serializable {
+        public class Cachorro implements Serializable {
 
-    private String nome;
-    private String raca;
-    private Integer idade;
-    private String endereco;
+            private String nome;
+            private String raca;
+            private Integer idade;
+            private String endereco;
 
     public Cachorro() {
     }

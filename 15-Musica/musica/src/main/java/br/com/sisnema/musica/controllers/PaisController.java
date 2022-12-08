@@ -4,10 +4,10 @@ import br.com.sisnema.musica.dtos.PaisDto;
 import br.com.sisnema.musica.services.PaisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -20,15 +20,37 @@ public class PaisController {
     // Listar todos os países
     @GetMapping
     public ResponseEntity<List<PaisDto>> buscarTodos() {
-        List<PaisDto> list = service.findAll();
+        List<PaisDto> list = service.procurarTodos();
         return ResponseEntity.ok().body(list);
     }
 
+//    @GetMapping
+//    public ResponseEntity<List<Pais>> buscarTodos() {
+//        List<Pais> list = service.procurarTodos();
+//        return ResponseEntity.ok().body(list);
+//    }
+
     // Listar um país por ID
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<PaisDto> buscarPorId(@PathVariable Long id) {
+        PaisDto dto = service.procurarPorId(id);
+        return ResponseEntity.ok().body(dto);
+    }
 
     // Cadastrar um país
+    @PostMapping
+    public ResponseEntity<PaisDto> inserir(@RequestBody PaisDto dto) {
+        dto = service.inserir(dto);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
+        return ResponseEntity.created(uri).body(dto);
+    }
 
     // Atualizar um país
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<PaisDto> atualizar(@PathVariable Long id, @RequestBody PaisDto dto) {
+        dto = service.atualizar(id, dto);
+        return ResponseEntity.ok().body(dto);
+    }
 
     // Deletar um país
 

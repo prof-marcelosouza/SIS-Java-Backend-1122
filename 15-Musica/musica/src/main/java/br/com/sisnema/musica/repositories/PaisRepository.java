@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PaisRepository extends JpaRepository<Pais, Long> {
+    // Aqui temos vários métodos do Spring Data
 }
