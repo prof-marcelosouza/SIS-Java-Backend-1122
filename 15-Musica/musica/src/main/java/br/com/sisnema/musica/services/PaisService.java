@@ -3,10 +3,13 @@ package br.com.sisnema.musica.services;
 import br.com.sisnema.musica.dtos.PaisDto;
 import br.com.sisnema.musica.entities.Pais;
 import br.com.sisnema.musica.repositories.PaisRepository;
+import br.com.sisnema.musica.services.exceptions.RecursoNaoEncontrado;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -35,7 +38,9 @@ public class PaisService {
     @Transactional(readOnly = true)
     public PaisDto procurarPorId(Long id) {
         Optional<Pais> objeto = repository.findById(id); //5 Blues
-        Pais entidade = objeto.get();
+        Pais entidade = objeto.orElseThrow(() ->
+                    new RecursoNaoEncontrado("Este ID não existe em nosso sistema.")
+                );
         return new PaisDto(entidade);
     }
 
@@ -52,14 +57,26 @@ public class PaisService {
     // Atualizar um país
     @Transactional
     public PaisDto atualizar(Long id, PaisDto dto) {
-        Pais entidade = repository.getReferenceById(id); // 6
-        entidade.setNome(dto.getNome()); // Rússia
-        entidade = repository.save(entidade); // 6 Rússia
-        return new PaisDto(entidade);
+        try {
+            Pais entidade = repository.getReferenceById(id); // 6
+            entidade.setNome(dto.getNome()); // Rússia
+            entidade = repository.save(entidade); // 6 Rússia
+            return new PaisDto(entidade);
+        }
+        catch (EntityNotFoundException e) {
+            throw new RecursoNaoEncontrado("Id não encontrado: " + id);
+        }
+
     }
 
     // Deletar um país
     public void excluir(Long id) {
-        repository.deleteById(id);
+        try {
+            repository.deleteById(id);
+        }
+        catch (EmptyResultDataAccessException e) {
+            throw new RecursoNaoEncontrado("Id não encontrado: " + id);
+        }
+
     }
 }
