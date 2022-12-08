@@ -53,5 +53,9 @@ public class PaisController {
     }
 
     // Deletar um país
-
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> excluir(@PathVariable Long id) {
+        service.excluir(id);
+        return ResponseEntity.noContent().build();
+    }
 }

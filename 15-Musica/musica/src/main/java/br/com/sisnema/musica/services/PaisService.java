@@ -59,5 +59,7 @@ public class PaisService {
     }
 
     // Deletar um país
-
+    public void excluir(Long id) {
+        repository.deleteById(id);
+    }
 }
