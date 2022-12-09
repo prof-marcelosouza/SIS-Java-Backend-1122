@@ -14,7 +14,7 @@ public class Cidade {
     private Long id;
     private String nome;
 
-    @OneToMany(mappedBy = "pais")
+    @OneToMany(mappedBy = "cidade")
     private List<Artista> artistas = new ArrayList<>();
 
     public Cidade() {

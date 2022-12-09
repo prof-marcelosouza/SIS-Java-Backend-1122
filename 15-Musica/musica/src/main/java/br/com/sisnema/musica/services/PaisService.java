@@ -3,8 +3,10 @@ package br.com.sisnema.musica.services;
 import br.com.sisnema.musica.dtos.PaisDto;
 import br.com.sisnema.musica.entities.Pais;
 import br.com.sisnema.musica.repositories.PaisRepository;
+import br.com.sisnema.musica.services.exceptions.IntegridadeBD;
 import br.com.sisnema.musica.services.exceptions.RecursoNaoEncontrado;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,7 +39,7 @@ public class PaisService {
     // Listar um país por ID
     @Transactional(readOnly = true)
     public PaisDto procurarPorId(Long id) {
-        Optional<Pais> objeto = repository.findById(id); //5 Blues
+        Optional<Pais> objeto = repository.findById(id);
         Pais entidade = objeto.orElseThrow(() ->
                     new RecursoNaoEncontrado("Este ID não existe em nosso sistema.")
                 );
@@ -77,6 +79,8 @@ public class PaisService {
         catch (EmptyResultDataAccessException e) {
             throw new RecursoNaoEncontrado("Id não encontrado: " + id);
         }
-
+        catch (DataIntegrityViolationException e) {
+            throw new IntegridadeBD("Violação de integridade no banco de dados.");
+        }
     }
 }
