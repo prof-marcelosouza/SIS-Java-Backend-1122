@@ -68,7 +68,6 @@ public class PaisService {
         catch (EntityNotFoundException e) {
             throw new RecursoNaoEncontrado("Id não encontrado: " + id);
         }
-
     }
 
     // Deletar um país

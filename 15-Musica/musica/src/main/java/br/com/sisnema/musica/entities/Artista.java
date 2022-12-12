@@ -34,11 +34,17 @@ public class Artista {
     public Artista() {
     }
 
-    public Artista(Long id, String nome, boolean banda, Pais pais) {
+    public Artista(Long id) {
+        this.id = id;
+    }
+
+    public Artista(Long id, String nome, boolean banda, Pais pais, Estado estado, Cidade cidade) {
         this.id = id;
         this.nome = nome;
         this.banda = banda;
         this.pais = pais;
+        this.estado = estado;
+        this.cidade = cidade;
     }
 
     public Long getId() {

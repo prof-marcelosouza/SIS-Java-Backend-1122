@@ -21,6 +21,10 @@ public class Genero {
     public Genero() {
     }
 
+    public Genero(Long id) {
+        this.id = id;
+    }
+
     public Genero(Long id, String nome) {
         this.id = id;
         this.nome = nome;
