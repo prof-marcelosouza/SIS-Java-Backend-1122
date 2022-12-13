@@ -32,6 +32,21 @@ INSERT INTO tabela_artista (nome, banda, pais_id, estado_id, cidade_id) VALUES (
 INSERT INTO tabela_artista (nome, banda, pais_id, estado_id, cidade_id) VALUES ('Iron Maiden', true, 3, 2, 2);
 INSERT INTO tabela_artista (nome, banda, pais_id, estado_id, cidade_id) VALUES ('Pearl Jam', true, 1, 6, 6);
 
+INSERT INTO tabela_festival (nome, data_evento) VALUES ('Rock In Rio', '2022-12-30');
+INSERT INTO tabela_festival (nome, data_evento) VALUES ('Fuji Rock Festival', '2023-11-20');
+INSERT INTO tabela_festival (nome, data_evento) VALUES ('Lollapalooza', '2023-05-25');
+INSERT INTO tabela_festival (nome, data_evento) VALUES ('Montreux Jazz Festival', '2025-05-11');
+INSERT INTO tabela_festival (nome, data_evento) VALUES ('Summerfest', '2024-10-09');
+
+INSERT INTO tabela_festival_artista (festival_id, artista_id) VALUES (1, 1);
+INSERT INTO tabela_festival_artista (festival_id, artista_id) VALUES (1, 2);
+INSERT INTO tabela_festival_artista (festival_id, artista_id) VALUES (1, 3);
+INSERT INTO tabela_festival_artista (festival_id, artista_id) VALUES (2, 3);
+INSERT INTO tabela_festival_artista (festival_id, artista_id) VALUES (2, 2);
+INSERT INTO tabela_festival_artista (festival_id, artista_id) VALUES (3, 1);
+INSERT INTO tabela_festival_artista (festival_id, artista_id) VALUES (3, 2);
+INSERT INTO tabela_festival_artista (festival_id, artista_id) VALUES (3, 3);
+
 INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Kill ''Em All', 1983, 1, 4);
 INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Ride The Lightning', 1984, 1, 4);
 INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Master Of Puppets', 1986, 1, 4);
