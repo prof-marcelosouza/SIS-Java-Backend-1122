@@ -2,7 +2,10 @@ package br.com.sisnema.musica.dtos;
 
 import br.com.sisnema.musica.entities.Estado;
 
-public class EstadoDto {
+import java.io.Serializable;
+
+public class EstadoDto implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private Long id;
     private String nome;

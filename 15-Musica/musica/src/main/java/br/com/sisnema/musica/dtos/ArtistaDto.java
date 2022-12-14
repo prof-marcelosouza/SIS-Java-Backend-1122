@@ -3,7 +3,10 @@ package br.com.sisnema.musica.dtos;
 import br.com.sisnema.musica.entities.Artista;
 import br.com.sisnema.musica.entities.Pais;
 
-public class ArtistaDto {
+import java.io.Serializable;
+
+public class ArtistaDto implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private Long id;
     private String nome;

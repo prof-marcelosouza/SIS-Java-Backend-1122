@@ -1,6 +1,7 @@
 package br.com.sisnema.musica.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
 import java.util.Objects;
@@ -8,7 +9,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "tabela_festival")
-public class Festival {
+public class Festival implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
