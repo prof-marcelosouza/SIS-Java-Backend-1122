@@ -1,10 +1,7 @@
 package br.com.sisnema.musica.services;
 
 import br.com.sisnema.musica.dtos.ArtistaDto;
-import br.com.sisnema.musica.entities.Artista;
-import br.com.sisnema.musica.entities.Cidade;
-import br.com.sisnema.musica.entities.Estado;
-import br.com.sisnema.musica.entities.Pais;
+import br.com.sisnema.musica.entities.*;
 import br.com.sisnema.musica.repositories.ArtistaRepository;
 import br.com.sisnema.musica.services.exceptions.IntegridadeBD;
 import br.com.sisnema.musica.services.exceptions.RecursoNaoEncontrado;
@@ -48,6 +45,7 @@ public class ArtistaService {
         entidade.setPais(new Pais(dto.getPais_id()));
         entidade.setEstado(new Estado(dto.getEstado_id()));
         entidade.setCidade(new Cidade(dto.getCidade_id()));
+        entidade.setGenero(new Genero(dto.getGenero_id()));
         entidade = repository.save(entidade);
         return new ArtistaDto(entidade);
     }
@@ -61,6 +59,7 @@ public class ArtistaService {
             entidade.setPais(new Pais(dto.getPais_id()));
             entidade.setEstado(new Estado(dto.getEstado_id()));
             entidade.setCidade(new Cidade(dto.getCidade_id()));
+            entidade.setGenero(new Genero(dto.getGenero_id()));
             entidade = repository.save(entidade);
             return new ArtistaDto(entidade);
         }

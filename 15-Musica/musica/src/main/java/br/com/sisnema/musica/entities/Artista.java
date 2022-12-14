@@ -29,6 +29,10 @@ public class Artista implements Serializable {
     @JoinColumn(name = "cidade_id")
     private Cidade cidade;
 
+    @ManyToOne
+    @JoinColumn(name = "genero_id")
+    private Genero genero;
+
     // Esse artista verde tem que ser igual ao atributo roxo do outro lado
     @OneToMany(mappedBy = "artista")
     private List<Album> albuns = new ArrayList<>();
@@ -40,13 +44,14 @@ public class Artista implements Serializable {
         this.id = id;
     }
 
-    public Artista(Long id, String nome, boolean banda, Pais pais, Estado estado, Cidade cidade) {
+    public Artista(Long id, String nome, boolean banda, Pais pais, Estado estado, Cidade cidade, Genero genero) {
         this.id = id;
         this.nome = nome;
         this.banda = banda;
         this.pais = pais;
         this.estado = estado;
         this.cidade = cidade;
+        this.genero = genero;
     }
 
     public Long getId() {
@@ -95,6 +100,14 @@ public class Artista implements Serializable {
 
     public void setCidade(Cidade cidade) {
         this.cidade = cidade;
+    }
+
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
     }
 
     public List<Album> getAlbuns() {

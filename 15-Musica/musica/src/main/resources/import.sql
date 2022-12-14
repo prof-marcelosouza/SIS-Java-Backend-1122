@@ -28,9 +28,9 @@ INSERT INTO tabela_genero (nome) VALUES ('Samba');
 INSERT INTO tabela_genero (nome) VALUES ('Bossa Nova');
 INSERT INTO tabela_genero (nome) VALUES ('Intrumental');
 
-INSERT INTO tabela_artista (nome, banda, pais_id, estado_id, cidade_id) VALUES ('Metallica', true, 1, 1, 1);
-INSERT INTO tabela_artista (nome, banda, pais_id, estado_id, cidade_id) VALUES ('Iron Maiden', true, 3, 2, 2);
-INSERT INTO tabela_artista (nome, banda, pais_id, estado_id, cidade_id) VALUES ('Pearl Jam', true, 1, 6, 6);
+INSERT INTO tabela_artista (nome, banda, pais_id, estado_id, cidade_id, genero_id) VALUES ('Metallica', true, 1, 1, 1, 4);
+INSERT INTO tabela_artista (nome, banda, pais_id, estado_id, cidade_id, genero_id) VALUES ('Iron Maiden', true, 3, 2, 2, 3);
+INSERT INTO tabela_artista (nome, banda, pais_id, estado_id, cidade_id, genero_id) VALUES ('Pearl Jam', true, 1, 6, 6, 1);
 
 INSERT INTO tabela_festival (nome, data_evento) VALUES ('Rock In Rio', '2022-12-30');
 INSERT INTO tabela_festival (nome, data_evento) VALUES ('Fuji Rock Festival', '2023-11-20');

@@ -16,9 +16,12 @@ public class Genero implements Serializable {
     private Long id;
     private String nome;
 
-    // Esse genero verde tem que ser igual ao atributo roxo do outro lado
+    // Esse gênero verde tem que ser igual ao atributo roxo do outro lado
     @OneToMany(mappedBy = "genero")
     private List<Album> albuns = new ArrayList<>();
+
+    @OneToMany(mappedBy = "genero")
+    private List<Artista> artistas = new ArrayList<>();
 
     public Genero() {
     }
@@ -50,6 +53,10 @@ public class Genero implements Serializable {
 
     public List<Album> getAlbuns() {
         return albuns;
+    }
+
+    public List<Artista> getArtistas() {
+        return artistas;
     }
 
     @Override

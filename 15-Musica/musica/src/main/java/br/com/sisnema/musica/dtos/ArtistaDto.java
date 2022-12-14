@@ -14,17 +14,19 @@ public class ArtistaDto implements Serializable {
     private Long pais_id;
     private Long estado_id;
     private Long cidade_id;
+    private Long genero_id;
 
     public ArtistaDto() {
     }
 
-    public ArtistaDto(Long id, String nome, boolean banda, Long pais_id, Long estado_id, Long cidade_id) {
+    public ArtistaDto(Long id, String nome, boolean banda, Long pais_id, Long estado_id, Long cidade_id, Long genero_id) {
         this.id = id;
         this.nome = nome;
         this.banda = banda;
         this.pais_id = pais_id;
         this.estado_id = estado_id;
         this.cidade_id = cidade_id;
+        this.genero_id = genero_id;
     }
 
     public ArtistaDto(Artista entidade) {
@@ -34,6 +36,7 @@ public class ArtistaDto implements Serializable {
         this.pais_id = entidade.getPais().getId();
         this.estado_id = entidade.getEstado().getId();
         this.cidade_id = entidade.getCidade().getId();
+        this.genero_id = entidade.getGenero().getId();
     }
 
     public Long getId() {
@@ -82,5 +85,13 @@ public class ArtistaDto implements Serializable {
 
     public void setCidade_id(Long cidade_id) {
         this.cidade_id = cidade_id;
+    }
+
+    public Long getGenero_id() {
+        return genero_id;
+    }
+
+    public void setGenero_id(Long genero_id) {
+        this.genero_id = genero_id;
     }
 }
