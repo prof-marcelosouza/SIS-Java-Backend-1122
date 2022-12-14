@@ -1,8 +1,11 @@
 package br.com.sisnema.musica.dtos;
 
+import br.com.sisnema.musica.entities.Artista;
 import br.com.sisnema.musica.entities.Festival;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 public class FestivalDto implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -10,6 +13,7 @@ public class FestivalDto implements Serializable {
     private Long id;
     private String nome;
     private String dataEvento;
+    private Set<ArtistaDto> artistas = new HashSet<>();
 
     public FestivalDto() {
     }
@@ -24,6 +28,12 @@ public class FestivalDto implements Serializable {
         this.id = entidade.getId();
         this.nome = entidade.getNome();
         this.dataEvento = entidade.getDataEvento();
+    }
+
+    // Segundo construtor que trás os artistas em cada festival
+    public FestivalDto(Festival entidade, Set<Artista> artistas) { // 0 1 2
+        this(entidade);
+        artistas.forEach(art -> this.artistas.add(new ArtistaDto(art)));
     }
 
     public Long getId() {
@@ -48,5 +58,9 @@ public class FestivalDto implements Serializable {
 
     public void setDataEvento(String dataEvento) {
         this.dataEvento = dataEvento;
+    }
+
+    public Set<ArtistaDto> getArtistas() {
+        return artistas;
     }
 }

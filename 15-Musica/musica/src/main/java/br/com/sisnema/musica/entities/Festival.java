@@ -19,7 +19,7 @@ public class Festival implements Serializable {
     private String dataEvento;
     // Atenção ao atributo no BD = data_evento
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "tabela_festival_artista",
             joinColumns = @JoinColumn(name = "festival_id"),
             inverseJoinColumns = @JoinColumn(name = "artista_id"))
@@ -56,6 +56,10 @@ public class Festival implements Serializable {
 
     public void setDataEvento(String dataEvento) {
         this.dataEvento = dataEvento;
+    }
+
+    public Set<Artista> getArtistas() {
+        return artistas;
     }
 
     @Override
