@@ -4,6 +4,7 @@ import br.com.sisnema.musica.entities.Artista;
 import br.com.sisnema.musica.entities.Festival;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,13 +13,13 @@ public class FestivalDto implements Serializable {
 
     private Long id;
     private String nome;
-    private String dataEvento;
+    private Instant dataEvento;
     private Set<ArtistaDto> artistas = new HashSet<>();
 
     public FestivalDto() {
     }
 
-    public FestivalDto(Long id, String nome, String dataEvento) {
+    public FestivalDto(Long id, String nome, Instant dataEvento) {
         this.id = id;
         this.nome = nome;
         this.dataEvento = dataEvento;
@@ -52,11 +53,11 @@ public class FestivalDto implements Serializable {
         this.nome = nome;
     }
 
-    public String getDataEvento() {
+    public Instant getDataEvento() {
         return dataEvento;
     }
 
-    public void setDataEvento(String dataEvento) {
+    public void setDataEvento(Instant dataEvento) {
         this.dataEvento = dataEvento;
     }
 

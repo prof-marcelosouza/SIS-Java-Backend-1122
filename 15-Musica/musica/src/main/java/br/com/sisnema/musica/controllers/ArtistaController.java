@@ -1,9 +1,7 @@
 package br.com.sisnema.musica.controllers;
 
 import br.com.sisnema.musica.dtos.ArtistaDto;
-import br.com.sisnema.musica.dtos.PaisDto;
 import br.com.sisnema.musica.services.ArtistaService;
-import br.com.sisnema.musica.services.PaisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +26,12 @@ public class ArtistaController {
     @GetMapping(value = "/{id}")
     public ResponseEntity<ArtistaDto> buscarPorId(@PathVariable Long id) {
         ArtistaDto dto = service.procurarPorId(id);
+        return ResponseEntity.ok().body(dto);
+    }
+
+    @GetMapping(value = "/{id}/albuns")
+    public ResponseEntity<ArtistaDto> buscarPorIdComAlbuns(@PathVariable Long id) {
+        ArtistaDto dto = service.procurarPorIdComAlbuns(id);
         return ResponseEntity.ok().body(dto);
     }
 

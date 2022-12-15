@@ -37,6 +37,15 @@ public class ArtistaService {
         return new ArtistaDto(entidade);
     }
 
+    @Transactional(readOnly = true)
+    public ArtistaDto procurarPorIdComAlbuns(Long id) {
+        Optional<Artista> objeto = repository.findById(id);
+        Artista entidade = objeto.orElseThrow(() ->
+                new RecursoNaoEncontrado("Este ID não existe em nosso sistema.")
+        );
+        return new ArtistaDto(entidade, entidade.getAlbuns());
+    }
+
     @Transactional
     public ArtistaDto inserir(ArtistaDto dto) {
         Artista entidade = new Artista();

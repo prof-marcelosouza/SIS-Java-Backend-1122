@@ -32,11 +32,11 @@ INSERT INTO tabela_artista (nome, banda, pais_id, estado_id, cidade_id, genero_i
 INSERT INTO tabela_artista (nome, banda, pais_id, estado_id, cidade_id, genero_id) VALUES ('Iron Maiden', true, 3, 2, 2, 3);
 INSERT INTO tabela_artista (nome, banda, pais_id, estado_id, cidade_id, genero_id) VALUES ('Pearl Jam', true, 1, 6, 6, 1);
 
-INSERT INTO tabela_festival (nome, data_evento) VALUES ('Rock In Rio', '2022-12-30');
-INSERT INTO tabela_festival (nome, data_evento) VALUES ('Fuji Rock Festival', '2023-11-20');
-INSERT INTO tabela_festival (nome, data_evento) VALUES ('Lollapalooza', '2023-05-25');
-INSERT INTO tabela_festival (nome, data_evento) VALUES ('Montreux Jazz Festival', '2025-05-11');
-INSERT INTO tabela_festival (nome, data_evento) VALUES ('Summerfest', '2024-10-09');
+INSERT INTO tabela_festival (nome, data_evento) VALUES ('Rock In Rio', TIMESTAMP WITH TIME ZONE '2023-07-13T20:00:07Z');
+INSERT INTO tabela_festival (nome, data_evento) VALUES ('Fuji Rock Festival', TIMESTAMP WITH TIME ZONE '2023-07-13T20:00:07Z');
+INSERT INTO tabela_festival (nome, data_evento) VALUES ('Lollapalooza', TIMESTAMP WITH TIME ZONE '2023-07-13T20:00:07Z');
+INSERT INTO tabela_festival (nome, data_evento) VALUES ('Montreux Jazz Festival', TIMESTAMP WITH TIME ZONE '2023-07-13T20:00:07Z');
+INSERT INTO tabela_festival (nome, data_evento) VALUES ('Summerfest', TIMESTAMP WITH TIME ZONE '2023-07-13T20:00:07Z');
 
 INSERT INTO tabela_festival_artista (festival_id, artista_id) VALUES (1, 1);
 INSERT INTO tabela_festival_artista (festival_id, artista_id) VALUES (1, 2);
@@ -58,4 +58,31 @@ INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Garage In
 INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('St. Anger', 2003, 1, 4);
 INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Death Magnetic', 2008, 1, 4);
 INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Hardwired--- to Self-Desctruct', 2016, 1, 4);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Iron Maiden', 1980, 2, 3);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Killers', 1981, 2, 3);
 INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('The Number of the Beast', 1982, 2, 3);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Piece of Mind', 1983, 2, 3);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Powerslave', 1984, 2, 3);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Somewhere in Time', 1986, 2, 3);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Seventh Son of a Seventh Son', 1988, 2, 3);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('No Prayer for the Dying', 1990, 2, 3);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Fear of the Dark', 1992, 2, 3);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('The X Factor', 1995, 2, 3);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Virtual XI', 1998, 2, 3);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Brave New World', 2000, 2, 3);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Dance of Death', 2003, 2, 3);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('A Matter of Life and Death', 2006, 2, 3);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('The Final Frontier', 2010, 2, 3);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('The Book of Souls', 2015, 2, 3);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Senjutsu', 2021, 2, 3);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Ten', 1991, 3, 1);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Vs.', 1993, 3, 1);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Vitalogy', 1994, 3, 1);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('No Code', 1996, 3, 1);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Yield', 1998, 3, 1);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Binaural', 2000, 3, 1);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Riot Act', 2002, 3, 1);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Pearl Jam', 2006, 3, 1);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Backspacer', 2009, 3, 1);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Lightning Bolt', 2013, 3, 1);
+INSERT INTO tabela_album (titulo, ano, artista_id, genero_id) VALUES ('Gigaton', 2020, 3, 1);
