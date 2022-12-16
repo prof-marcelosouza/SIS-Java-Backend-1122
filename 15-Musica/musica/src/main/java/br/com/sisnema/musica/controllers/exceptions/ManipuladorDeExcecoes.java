@@ -4,6 +4,8 @@ import br.com.sisnema.musica.services.exceptions.IntegridadeBD;
 import br.com.sisnema.musica.services.exceptions.RecursoNaoEncontrado;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -35,6 +37,23 @@ public class ManipuladorDeExcecoes {
         erro.setMessage(e.getMessage()); // Erro da camada do Service
         erro.setPath(request.getRequestURI());
         return ResponseEntity.status(status).body(erro);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErroDeValidacao> validacao(MethodArgumentNotValidException e, HttpServletRequest request) {
+        HttpStatus status = HttpStatus.UNPROCESSABLE_ENTITY;
+        ErroDeValidacao erroDeValidacao = new ErroDeValidacao();
+        erroDeValidacao.setTimestamp(Instant.now());
+        erroDeValidacao.setStatus(status.value()); // 422
+        erroDeValidacao.setError("EXCEÇÃO NA VALIDAÇÃO - BEANS VALIDATION!");
+        erroDeValidacao.setMessage(e.getMessage()); // Erro da camada do Service
+        erroDeValidacao.setPath(request.getRequestURI());
+
+        for (FieldError f : e.getBindingResult().getFieldErrors()) {
+            erroDeValidacao.AddErro(f.getField(), f.getDefaultMessage());
+        }
+
+        return ResponseEntity.status(status).body(erroDeValidacao);
     }
 
 }

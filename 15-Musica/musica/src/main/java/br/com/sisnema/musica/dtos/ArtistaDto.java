@@ -4,6 +4,8 @@ import br.com.sisnema.musica.entities.Album;
 import br.com.sisnema.musica.entities.Artista;
 import br.com.sisnema.musica.entities.Pais;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,11 +14,16 @@ public class ArtistaDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Long id;
+    @NotBlank(message = "Campo obrigatório.")
     private String nome;
     private boolean banda;
+    @NotNull(message = "Campo obrigatório - não pode ser nulo.")
     private Long pais_id;
+    @NotNull(message = "Campo obrigatório - não pode ser nulo.")
     private Long estado_id;
+    @NotNull(message = "Campo obrigatório - não pode ser nulo.")
     private Long cidade_id;
+    @NotNull(message = "Campo obrigatório - não pode ser nulo.")
     private Long genero_id;
     private List<AlbumDto> albuns = new ArrayList<>();
 
