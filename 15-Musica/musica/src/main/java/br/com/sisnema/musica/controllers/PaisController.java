@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class PaisController {
 
     // Cadastrar um país
     @PostMapping
-    public ResponseEntity<PaisDto> inserir(@RequestBody PaisDto dto) {
+    public ResponseEntity<PaisDto> inserir(@RequestBody @Valid PaisDto dto) {
         dto = service.inserir(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(dto);
@@ -47,7 +48,7 @@ public class PaisController {
 
     // Atualizar um país
     @PutMapping(value = "/{id}")
-    public ResponseEntity<PaisDto> atualizar(@PathVariable Long id, @RequestBody PaisDto dto) {
+    public ResponseEntity<PaisDto> atualizar(@PathVariable Long id, @RequestBody @Valid PaisDto dto) {
         dto = service.atualizar(id, dto);
         return ResponseEntity.ok().body(dto);
     }

@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -32,14 +33,14 @@ public class FestivalController {
     }
 
     @PostMapping
-    public ResponseEntity<FestivalDto> inserir(@RequestBody FestivalDto dto) {
+    public ResponseEntity<FestivalDto> inserir(@RequestBody @Valid FestivalDto dto) {
         dto = service.inserir(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(dto);
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<FestivalDto> atualizar(@PathVariable Long id, @RequestBody FestivalDto dto) {
+    public ResponseEntity<FestivalDto> atualizar(@PathVariable Long id, @RequestBody @Valid FestivalDto dto) {
         dto = service.atualizar(id, dto);
         return ResponseEntity.ok().body(dto);
     }
