@@ -1,0 +1,67 @@
+INSERT INTO tabela_continente (nome) VALUES ('América');
+INSERT INTO tabela_continente (nome) VALUES ('Europa');
+INSERT INTO tabela_continente (nome) VALUES ('África');
+INSERT INTO tabela_continente (nome) VALUES ('Asia');
+INSERT INTO tabela_continente (nome) VALUES ('Oceania');
+
+INSERT INTO tabela_selecao (nome) VALUES ('Equador');
+INSERT INTO tabela_selecao (nome) VALUES ('Holanda');
+INSERT INTO tabela_selecao (nome) VALUES ('Catar');
+INSERT INTO tabela_selecao (nome) VALUES ('Senegal ');
+INSERT INTO tabela_selecao (nome) VALUES ('Inglaterra ');
+INSERT INTO tabela_selecao (nome) VALUES ('Irã');
+INSERT INTO tabela_selecao (nome) VALUES ('Estados Unidos');
+INSERT INTO tabela_selecao (nome) VALUES ('País de Gales');
+INSERT INTO tabela_selecao (nome) VALUES ('Argentina ');
+INSERT INTO tabela_selecao (nome) VALUES ('México');
+INSERT INTO tabela_selecao (nome) VALUES ('Polônia');
+INSERT INTO tabela_selecao (nome) VALUES ('Arábia Saudita');
+INSERT INTO tabela_selecao (nome) VALUES ('Austrália');
+INSERT INTO tabela_selecao (nome) VALUES ('Dinamarca');
+INSERT INTO tabela_selecao (nome) VALUES ('França');
+INSERT INTO tabela_selecao (nome) VALUES ('Tunísia');
+INSERT INTO tabela_selecao (nome) VALUES ('Costa Rica');
+INSERT INTO tabela_selecao (nome) VALUES ('Alemanha');
+INSERT INTO tabela_selecao (nome) VALUES ('Japão');
+INSERT INTO tabela_selecao (nome) VALUES ('Espanha');
+INSERT INTO tabela_selecao (nome) VALUES ('Bélgica');
+INSERT INTO tabela_selecao (nome) VALUES ('Canadá');
+INSERT INTO tabela_selecao (nome) VALUES ('Croácia');
+INSERT INTO tabela_selecao (nome) VALUES ('Marrocos');
+INSERT INTO tabela_selecao (nome) VALUES ('Brasil');
+INSERT INTO tabela_selecao (nome) VALUES ('Camarões');
+INSERT INTO tabela_selecao (nome) VALUES ('Sérvia');
+INSERT INTO tabela_selecao (nome) VALUES ('Suíça');
+INSERT INTO tabela_selecao (nome) VALUES ('Gana');
+INSERT INTO tabela_selecao (nome) VALUES ('Portugal');
+INSERT INTO tabela_selecao (nome) VALUES ('Coreia do Sul');
+INSERT INTO tabela_selecao (nome) VALUES ('Uruguai');
+
+INSERT INTO tabela_posicao (descricao) VALUES ('Goleiros');
+INSERT INTO tabela_posicao (descricao) VALUES ('Defensores');
+INSERT INTO tabela_posicao (descricao) VALUES ('Meio-campistas');
+INSERT INTO tabela_posicao (descricao) VALUES ('Atacantes');
+
+INSERT INTO tabela_fase (descricao) VALUES ('Fase de Grupos');
+INSERT INTO tabela_fase (descricao) VALUES ('Oitavas de final');
+INSERT INTO tabela_fase (descricao) VALUES ('Quartas de final');
+INSERT INTO tabela_fase (descricao) VALUES ('Semifinal');
+INSERT INTO tabela_fase (descricao) VALUES ('Disputa do 3º lugar');
+INSERT INTO tabela_fase (descricao) VALUES ('Final');
+
+INSERT INTO tabela_grupo (descricao) VALUES ('A');
+INSERT INTO tabela_grupo (descricao) VALUES ('B');
+INSERT INTO tabela_grupo (descricao) VALUES ('C');
+INSERT INTO tabela_grupo (descricao) VALUES ('D');
+INSERT INTO tabela_grupo (descricao) VALUES ('E');
+INSERT INTO tabela_grupo (descricao) VALUES ('F');
+INSERT INTO tabela_grupo (descricao) VALUES ('G');
+INSERT INTO tabela_grupo (descricao) VALUES ('H');
+
+INSERT INTO tabela_patrocinador (nome) VALUES ('Adidas');
+INSERT INTO tabela_patrocinador (nome) VALUES ('Coca-Cola');
+INSERT INTO tabela_patrocinador (nome) VALUES ('Wanda Group');
+INSERT INTO tabela_patrocinador (nome) VALUES ('Hyundai-Kia');
+INSERT INTO tabela_patrocinador (nome) VALUES ('Qatar Airways');
+INSERT INTO tabela_patrocinador (nome) VALUES ('Visa');
+INSERT INTO tabela_patrocinador (nome) VALUES ('Qatar Energy');

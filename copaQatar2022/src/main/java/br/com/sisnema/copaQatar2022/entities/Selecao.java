@@ -1,6 +1,8 @@
 package br.com.sisnema.copaQatar2022.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -11,6 +13,13 @@ public class Selecao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+
+    @OneToMany(mappedBy = "selecao")
+    private List<Jogador> jogadores = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "continente_id")
+    private Continente continente;
 
     public Selecao() {
     }

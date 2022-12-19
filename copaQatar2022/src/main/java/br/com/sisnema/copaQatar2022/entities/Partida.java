@@ -13,6 +13,14 @@ public class Partida {
     private Long id;
     private Instant diaHora;
 
+    @ManyToOne
+    @JoinColumn(name = "fase_id")
+    private Fase fase;
+
+    @ManyToOne
+    @JoinColumn(name = "grupo_id")
+    private Grupo grupo;
+
     public Partida() {
     }
 

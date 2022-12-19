@@ -1,6 +1,8 @@
 package br.com.sisnema.copaQatar2022.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -11,6 +13,9 @@ public class Grupo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String descricao;
+
+    @OneToMany(mappedBy = "grupo")
+    private List<Partida> partidas = new ArrayList<>();
 
     public Grupo() {
     }
@@ -34,6 +39,10 @@ public class Grupo {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public List<Partida> getPartidas() {
+        return partidas;
     }
 
     @Override

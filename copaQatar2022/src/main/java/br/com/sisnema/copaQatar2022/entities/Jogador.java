@@ -15,6 +15,16 @@ public class Jogador {
     private Double altura;
     private Double salario;
 
+    // Relação com Posição
+    @ManyToOne
+    @JoinColumn(name = "posicao_id")
+    private Posicao posicao;
+
+    // Relação com Seleção
+    @ManyToOne
+    @JoinColumn(name = "selecao_id")
+    private Selecao selecao;
+
     public Jogador() {
     }
 

@@ -1,7 +1,9 @@
 package br.com.sisnema.copaQatar2022.entities;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "tabela_patrocinador")
@@ -11,6 +13,12 @@ public class Patrocinador {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+
+    @ManyToMany
+    @JoinTable(name = "tabela_patrocinador_jogador",
+            joinColumns = @JoinColumn(name = "patrocinador_id"),
+            inverseJoinColumns = @JoinColumn(name = "jogador_id"))
+    private Set<Jogador> jogadores = new HashSet<>();
 
     public Patrocinador() {
     }
@@ -34,6 +42,10 @@ public class Patrocinador {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Set<Jogador> getJogadores() {
+        return jogadores;
     }
 
     @Override
