@@ -1,9 +1,7 @@
 package br.com.sisnema.musica.controllers;
 
 import br.com.sisnema.musica.dtos.AlbumDto;
-import br.com.sisnema.musica.dtos.ArtistaDto;
 import br.com.sisnema.musica.services.AlbumService;
-import br.com.sisnema.musica.services.ArtistaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
