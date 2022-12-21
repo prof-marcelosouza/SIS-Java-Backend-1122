@@ -13,21 +13,27 @@ public class Factory {
         return cidade;
     }
 
+    // criarCidadeDto()
+
     public static Estado criarEstado() {
         Estado estado = new Estado(1L, "Mato Grosso do Sul");
         return estado;
     }
+
+    // criarEstadoDto()
 
     public static Pais criarPais() {
         Pais pais = new Pais(1L, "Argentina");
         return pais;
     }
 
+    // criarPaisDto()
+
     public static Genero criarGenero() {
         Genero genero = new Genero(1L, "Axé");
         return genero;
     }
 
-
+    // criarGeneroDto()
 
 }
