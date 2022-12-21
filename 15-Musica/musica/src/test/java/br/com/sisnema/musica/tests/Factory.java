@@ -24,8 +24,8 @@ public class Factory {
     }
 
     public static Genero criarGenero() {
-        Genero estado = new Genero(1L, "Axé");
-        return estado;
+        Genero genero = new Genero(1L, "Axé");
+        return genero;
     }
 
 

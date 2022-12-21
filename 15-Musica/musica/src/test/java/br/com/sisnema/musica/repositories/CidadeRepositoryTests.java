@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.dao.EmptyResultDataAccessException;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @DataJpaTest
@@ -21,27 +23,13 @@ public class CidadeRepositoryTests {
     private Long idExistente;
     private Long idNaoExistente;
     private Long contagemTotalDeCidades;
+    private List<Cidade> cidadeList = new ArrayList<>();
 
     @BeforeEach
     void Setup() throws Exception {
         idExistente = 1L;
         idNaoExistente = 999L;
         contagemTotalDeCidades = 6L;
-    }
-
-    @Test
-    public void deleteDeveriaExcluirOObjetoQuandoOIdExistir() {
-        repository.deleteById(idExistente);
-        Optional<Cidade> resultado = repository.findById(idExistente);
-        Assertions.assertFalse(resultado.isPresent()); // Cidade
-        // Existe um objeto cidade aqui dentro?
-    }
-
-    @Test
-    public void deleteDeveriaLancarExcecaoSeOIdENaoxistir() {
-        Assertions.assertThrows(EmptyResultDataAccessException.class, () -> {
-            repository.deleteById(idNaoExistente);
-        });
     }
 
     @Test
@@ -56,15 +44,35 @@ public class CidadeRepositoryTests {
     // Update não faz sentido na camada de Repository.
 
     @Test
-    public void procurarPorIdDeveriaRetornarUmOptionalComUmObjeto() {
+    public void findAllDeveriaRetornarUmaListaDeObjetos() {
+        cidadeList = repository.findAll();
+        Assertions.assertNotNull(cidadeList);
+    }
+
+    @Test
+    public void findByIdDeveriaRetornarUmOptionalComUmObjeto() {
         Optional<Cidade> resultado = repository.findById(idExistente); // 1L
         Assertions.assertTrue(resultado.isPresent());
     }
 
     @Test
-    public void procurarPorIdDeveriaRetornarUmOptionalVazio() {
+    public void findByIdDeveriaRetornarUmOptionalVazio() {
         Optional<Cidade> resultado = repository.findById(idNaoExistente); // 999L
         Assertions.assertTrue(resultado.isEmpty());
     }
 
+    @Test
+    public void deleteByIdDeveriaExcluirOObjetoQuandoOIdExistir() {
+        repository.deleteById(idExistente);
+        Optional<Cidade> resultado = repository.findById(idExistente);
+        Assertions.assertFalse(resultado.isPresent()); // Cidade
+        // Existe um objeto cidade aqui dentro?
+    }
+
+    @Test
+    public void deleteByIdDeveriaLancarExcecaoSeOIdENaoxistir() {
+        Assertions.assertThrows(EmptyResultDataAccessException.class, () -> {
+            repository.deleteById(idNaoExistente);
+        });
+    }
 }
