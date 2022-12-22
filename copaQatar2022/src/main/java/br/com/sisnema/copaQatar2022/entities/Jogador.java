@@ -1,11 +1,13 @@
 package br.com.sisnema.copaQatar2022.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "tabela_jogador")
-public class Jogador {
+public class Jogador implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
