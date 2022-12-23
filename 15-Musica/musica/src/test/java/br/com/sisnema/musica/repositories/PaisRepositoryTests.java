@@ -1,5 +1,6 @@
 package br.com.sisnema.musica.repositories;
 
+import br.com.sisnema.musica.dtos.PaisDto;
 import br.com.sisnema.musica.entities.Pais;
 import br.com.sisnema.musica.tests.Factory;
 import org.junit.jupiter.api.Assertions;

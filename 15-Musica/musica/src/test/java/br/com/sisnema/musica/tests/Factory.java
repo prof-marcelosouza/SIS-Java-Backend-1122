@@ -1,5 +1,6 @@
 package br.com.sisnema.musica.tests;
 
+import br.com.sisnema.musica.dtos.PaisDto;
 import br.com.sisnema.musica.entities.Cidade;
 import br.com.sisnema.musica.entities.Estado;
 import br.com.sisnema.musica.entities.Genero;
@@ -27,7 +28,10 @@ public class Factory {
         return pais;
     }
 
-    // criarPaisDto()
+    public static PaisDto criarPaisDto() {
+        Pais pais = criarPais();
+        return new PaisDto(pais);
+    }
 
     public static Genero criarGenero() {
         Genero genero = new Genero(1L, "Axé");
