@@ -60,6 +60,7 @@ public class PaisControllerTests {
                 .thenThrow(RecursoNaoEncontrado.class);
 
         doNothing().when(service).excluir(idExistente);
+        doThrow(RecursoNaoEncontrado.class).when(service).excluir(idNaoExistente);
     }
 
     @Test
@@ -77,4 +78,83 @@ public class PaisControllerTests {
         resultado.andExpect(jsonPath("$.nome").exists());
     }
 
+    @Test
+    public void procurarTodosDeveriaRetonarUmaLista() throws Exception {
+
+        ResultActions resultado = mockMvc.perform(get("/paises")
+                .accept(MediaType.APPLICATION_JSON));
+        resultado.andExpect(status().isOk());
+    }
+
+    @Test
+    public void procurarPorIdDeveriaRetornarUm200QuandoOIdExistir() throws Exception {
+
+        ResultActions resultado = mockMvc
+                        .perform(get("/paises/{id}", idExistente)
+                        .accept(MediaType.APPLICATION_JSON));
+
+        resultado.andExpect(status().isOk());
+        resultado.andExpect(jsonPath("$.id").exists());
+        resultado.andExpect(jsonPath("$.nome").exists());
+    }
+
+    @Test
+    public void procurarPorIdDeveriaRetornarUm404QuandoOIdNaoExistir() throws Exception {
+
+        ResultActions resultado = mockMvc
+                .perform(get("/paises/{id}", idNaoExistente)
+                        .accept(MediaType.APPLICATION_JSON));
+
+        resultado.andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void atualizarDeveriaRetornarUm200DtoQuandoOIdExistir() throws Exception {
+
+        String jsonBody = objectMapper.writeValueAsString(paisDto);
+
+        ResultActions resultado = mockMvc
+                        .perform(put("/paises/{id}", idExistente)
+                        .content(jsonBody)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON));
+
+        resultado.andExpect(status().isOk());
+        resultado.andExpect(jsonPath("$.id").exists());
+        resultado.andExpect(jsonPath("$.nome").exists());
+    }
+
+    @Test
+    public void atualizarDeveriaRetornarUm404DtoQuandoOIdNaoExistir() throws Exception {
+
+        String jsonBody = objectMapper.writeValueAsString(paisDto);
+
+        ResultActions resultado = mockMvc
+                .perform(put("/paises/{id}", idNaoExistente)
+                        .content(jsonBody)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON));
+
+        resultado.andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void excluirDeveriaRetornarUm204QuandoOIdExistir() throws Exception {
+
+        ResultActions resultado = mockMvc
+                .perform(delete("/paises/{id}", idExistente)
+                        .accept(MediaType.APPLICATION_JSON));
+
+        resultado.andExpect(status().isNoContent());
+    }
+
+    @Test
+    public void excluirDeveriaRetornarUm404QuandoOIdNaoExistir() throws Exception {
+
+        ResultActions resultado = mockMvc
+                .perform(delete("/paises/{id}", idNaoExistente)
+                        .accept(MediaType.APPLICATION_JSON));
+
+        resultado.andExpect(status().isNotFound());
+    }
 }
