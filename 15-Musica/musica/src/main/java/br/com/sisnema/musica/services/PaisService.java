@@ -50,9 +50,9 @@ public class PaisService {
     @Transactional
     public PaisDto inserir(PaisDto dto) {
         Pais entidade = new Pais(); // null null
-        entidade.setNome(dto.getNome()); // null Rússia
-        entidade = repository.save(entidade); // null Rússia
-        // E retorna 6 Rússia
+        entidade.setNome(dto.getNome()); // null Uruguai
+        entidade = repository.save(entidade); // null Uruguai
+        // E retorna 6 Uruguai
         return new PaisDto(entidade);
     }
 

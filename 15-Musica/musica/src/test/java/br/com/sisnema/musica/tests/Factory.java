@@ -33,7 +33,7 @@ public class Factory {
     }
 
     public static Pais criarPais() {
-        Pais pais = new Pais(1L, "Argentina");
+        Pais pais = new Pais(1L, "Uruguai");
         return pais;
     }
 
