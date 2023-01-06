@@ -1,54 +1,52 @@
 package br.com.sisnema.musica.services;
 
-import br.com.sisnema.musica.dtos.PaisDto;
-import br.com.sisnema.musica.repositories.PaisRepository;
-import br.com.sisnema.musica.services.exceptions.IntegridadeBD;
+import br.com.sisnema.musica.dtos.FestivalDto;
+import br.com.sisnema.musica.repositories.FestivalRepository;
 import br.com.sisnema.musica.services.exceptions.RecursoNaoEncontrado;
-import br.com.sisnema.musica.tests.Factory;
+import br.com.sisnema.musica.tests.FactoryFK;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @SpringBootTest
 @Transactional
-public class PaisServiceTI {
+public class FestivalServiceTI {
 
     @Autowired
-    private PaisService service;
+    private FestivalService service;
 
     @Autowired
-    private PaisRepository repository;
+    private FestivalRepository repository;
 
     private Long idExistente;
     private Long idNaoExistente;
     private Long idChaveEstrangeira;
-    private Long contagemTotalDePaises;
-    private PaisDto paisDto;
+    private Long contagemTotalDeFestivais;
+    private FestivalDto festivalDto;
 
     @BeforeEach
     void Setup() throws Exception {
-        idExistente = 2L;
+        idExistente = 1L;
         idNaoExistente = 999L;
         idChaveEstrangeira = 1L;
-        contagemTotalDePaises = 5L;
-        paisDto = Factory.criarPaisDto();
+        contagemTotalDeFestivais = 5L;
+        festivalDto = FactoryFK.criarFestivalDto();
     }
 
     @Test
     public void procurarTodosDeveriaRetornarUmaListaDeDtos() {
-        List<PaisDto> lista = service.procurarTodos();
+        List<FestivalDto> lista = service.procurarTodos();
         Assertions.assertFalse(lista.isEmpty());
     }
 
     @Test
     public void procurarPorIdDeveriaRetornarUmDtoQuandoOIdExistir() {
-        PaisDto resultado = service.procurarPorId(idExistente);
+        FestivalDto resultado = service.procurarPorId(idExistente);
         Assertions.assertNotNull(resultado);
     }
 
@@ -61,30 +59,30 @@ public class PaisServiceTI {
 
     @Test
     public void inserirDeveriaGravarUmObjetoNoBancoDeDados() {
-        PaisDto resultado = service.inserir(paisDto); // Retorna - 6L Uruguai
-        Assertions.assertEquals(contagemTotalDePaises + 1, repository.count());
-//        System.out.println("Quantidade de registros em Pais: " + repository.count());
-//        System.out.println("Registro inserido em Pais: " + resultado);
+        FestivalDto resultado = service.inserir(festivalDto); // Retorna - 6L Uruguai
+        Assertions.assertEquals(contagemTotalDeFestivais + 1, repository.count());
+//        System.out.println("Quantidade de registros em Festival: " + repository.count());
+//        System.out.println("Registro inserido em Festival: " + resultado);
     }
 
     @Test
     public void atualizarDeveriaGravarNovamenteUmMesmoObjeto() {
-        PaisDto resultado = service.atualizar(idExistente, paisDto);
+        FestivalDto resultado = service.atualizar(idExistente, festivalDto);
         Assertions.assertNotNull(resultado);
-//        System.out.println("Registro inserido em Pais: " + resultado);
+//        System.out.println("Registro inserido em Festival: " + resultado);
     }
 
     @Test
     public void atualizarDeveriaLancarUmaExcecaoDeIdNaoEncontrado() {
         Assertions.assertThrows(RecursoNaoEncontrado.class, () -> {
-           service.atualizar(idNaoExistente, paisDto);
+           service.atualizar(idNaoExistente, festivalDto);
         });
     }
 
     @Test
     public void excluirDeveriaEliminarUmRegistro() {
         service.excluir(idExistente);
-        Assertions.assertEquals(contagemTotalDePaises - 1, repository.count());
+        Assertions.assertEquals(contagemTotalDeFestivais - 1, repository.count());
     }
 
     @Test

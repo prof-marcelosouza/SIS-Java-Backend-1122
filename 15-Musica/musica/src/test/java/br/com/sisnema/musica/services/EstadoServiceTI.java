@@ -1,8 +1,7 @@
 package br.com.sisnema.musica.services;
 
-import br.com.sisnema.musica.dtos.PaisDto;
-import br.com.sisnema.musica.repositories.PaisRepository;
-import br.com.sisnema.musica.services.exceptions.IntegridadeBD;
+import br.com.sisnema.musica.dtos.EstadoDto;
+import br.com.sisnema.musica.repositories.EstadoRepository;
 import br.com.sisnema.musica.services.exceptions.RecursoNaoEncontrado;
 import br.com.sisnema.musica.tests.Factory;
 import org.junit.jupiter.api.Assertions;
@@ -10,45 +9,44 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @SpringBootTest
 @Transactional
-public class PaisServiceTI {
+public class EstadoServiceTI {
 
     @Autowired
-    private PaisService service;
+    private EstadoService service;
 
     @Autowired
-    private PaisRepository repository;
+    private EstadoRepository repository;
 
     private Long idExistente;
     private Long idNaoExistente;
     private Long idChaveEstrangeira;
-    private Long contagemTotalDePaises;
-    private PaisDto paisDto;
+    private Long contagemTotalDeEstados;
+    private EstadoDto estadoDto;
 
     @BeforeEach
     void Setup() throws Exception {
-        idExistente = 2L;
+        idExistente = 7L;
         idNaoExistente = 999L;
         idChaveEstrangeira = 1L;
-        contagemTotalDePaises = 5L;
-        paisDto = Factory.criarPaisDto();
+        contagemTotalDeEstados = 7L;
+        estadoDto = Factory.criarEstadoDto();
     }
 
     @Test
     public void procurarTodosDeveriaRetornarUmaListaDeDtos() {
-        List<PaisDto> lista = service.procurarTodos();
+        List<EstadoDto> lista = service.procurarTodos();
         Assertions.assertFalse(lista.isEmpty());
     }
 
     @Test
     public void procurarPorIdDeveriaRetornarUmDtoQuandoOIdExistir() {
-        PaisDto resultado = service.procurarPorId(idExistente);
+        EstadoDto resultado = service.procurarPorId(idExistente);
         Assertions.assertNotNull(resultado);
     }
 
@@ -61,30 +59,30 @@ public class PaisServiceTI {
 
     @Test
     public void inserirDeveriaGravarUmObjetoNoBancoDeDados() {
-        PaisDto resultado = service.inserir(paisDto); // Retorna - 6L Uruguai
-        Assertions.assertEquals(contagemTotalDePaises + 1, repository.count());
-//        System.out.println("Quantidade de registros em Pais: " + repository.count());
-//        System.out.println("Registro inserido em Pais: " + resultado);
+        EstadoDto resultado = service.inserir(estadoDto); // Retorna - 6L Uruguai
+        Assertions.assertEquals(contagemTotalDeEstados + 1, repository.count());
+//        System.out.println("Quantidade de registros em Estado: " + repository.count());
+//        System.out.println("Registro inserido em Estado: " + resultado);
     }
 
     @Test
     public void atualizarDeveriaGravarNovamenteUmMesmoObjeto() {
-        PaisDto resultado = service.atualizar(idExistente, paisDto);
+        EstadoDto resultado = service.atualizar(idExistente, estadoDto);
         Assertions.assertNotNull(resultado);
-//        System.out.println("Registro inserido em Pais: " + resultado);
+//        System.out.println("Registro inserido em Estado: " + resultado);
     }
 
     @Test
     public void atualizarDeveriaLancarUmaExcecaoDeIdNaoEncontrado() {
         Assertions.assertThrows(RecursoNaoEncontrado.class, () -> {
-           service.atualizar(idNaoExistente, paisDto);
+           service.atualizar(idNaoExistente, estadoDto);
         });
     }
 
     @Test
     public void excluirDeveriaEliminarUmRegistro() {
         service.excluir(idExistente);
-        Assertions.assertEquals(contagemTotalDePaises - 1, repository.count());
+        Assertions.assertEquals(contagemTotalDeEstados - 1, repository.count());
     }
 
     @Test
