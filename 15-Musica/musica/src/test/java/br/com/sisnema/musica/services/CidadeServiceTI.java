@@ -27,7 +27,7 @@ public class CidadeServiceTI {
     private Long idExistente;
     private Long idNaoExistente;
     private Long idChaveEstrangeira;
-    private Long contagemTotalDeCidadees;
+    private Long contagemTotalDeCidades;
     private CidadeDto cidadeDto;
 
     @BeforeEach
@@ -35,7 +35,7 @@ public class CidadeServiceTI {
         idExistente = 7L;
         idNaoExistente = 999L;
         idChaveEstrangeira = 1L;
-        contagemTotalDeCidadees = 7L;
+        contagemTotalDeCidades = 7L;
         cidadeDto = Factory.criarCidadeDto();
     }
 
@@ -61,7 +61,7 @@ public class CidadeServiceTI {
     @Test
     public void inserirDeveriaGravarUmObjetoNoBancoDeDados() {
         CidadeDto resultado = service.inserir(cidadeDto); // Retorna - 6L Uruguai
-        Assertions.assertEquals(contagemTotalDeCidadees + 1, repository.count());
+        Assertions.assertEquals(contagemTotalDeCidades + 1, repository.count());
 //        System.out.println("Quantidade de registros em Cidade: " + repository.count());
 //        System.out.println("Registro inserido em Cidade: " + resultado);
     }
@@ -83,7 +83,7 @@ public class CidadeServiceTI {
     @Test
     public void excluirDeveriaEliminarUmRegistro() {
         service.excluir(idExistente);
-        Assertions.assertEquals(contagemTotalDeCidadees - 1, repository.count());
+        Assertions.assertEquals(contagemTotalDeCidades - 1, repository.count());
     }
 
     @Test

@@ -26,7 +26,7 @@ public class AlbumServiceTI {
     private Long idExistente;
     private Long idNaoExistente;
     private Long idChaveEstrangeira;
-    private Long contagemTotalDeAlbumes;
+    private Long contagemTotalDeAlbuns;
     private AlbumDto albumDto;
 
     @BeforeEach
@@ -34,7 +34,7 @@ public class AlbumServiceTI {
         idExistente = 2L;
         idNaoExistente = 999L;
         idChaveEstrangeira = 1L;
-        contagemTotalDeAlbumes = 39L;
+        contagemTotalDeAlbuns = 39L;
         albumDto = FactoryFK.criarAlbumDto();
     }
 
@@ -60,7 +60,7 @@ public class AlbumServiceTI {
     @Test
     public void inserirDeveriaGravarUmObjetoNoBancoDeDados() {
         AlbumDto resultado = service.inserir(albumDto); // Retorna - 6L Uruguai
-        Assertions.assertEquals(contagemTotalDeAlbumes + 1, repository.count());
+        Assertions.assertEquals(contagemTotalDeAlbuns + 1, repository.count());
 //        System.out.println("Quantidade de registros em Album: " + repository.count());
 //        System.out.println("Registro inserido em Album: " + resultado);
     }
@@ -82,7 +82,7 @@ public class AlbumServiceTI {
     @Test
     public void excluirDeveriaEliminarUmRegistro() {
         service.excluir(idExistente);
-        Assertions.assertEquals(contagemTotalDeAlbumes - 1, repository.count());
+        Assertions.assertEquals(contagemTotalDeAlbuns - 1, repository.count());
     }
 
     @Test

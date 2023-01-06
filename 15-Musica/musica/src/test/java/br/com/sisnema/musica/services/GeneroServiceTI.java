@@ -4,7 +4,6 @@ import br.com.sisnema.musica.dtos.GeneroDto;
 import br.com.sisnema.musica.repositories.GeneroRepository;
 import br.com.sisnema.musica.services.exceptions.RecursoNaoEncontrado;
 import br.com.sisnema.musica.tests.Factory;
-import br.com.sisnema.musica.tests.FactoryFK;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,7 +26,7 @@ public class GeneroServiceTI {
     private Long idExistente;
     private Long idNaoExistente;
     private Long idChaveEstrangeira;
-    private Long contagemTotalDeFestivais;
+    private Long contagemTotalDeGeneros;
     private GeneroDto festivalDto;
 
     @BeforeEach
@@ -35,7 +34,7 @@ public class GeneroServiceTI {
         idExistente = 5L;
         idNaoExistente = 999L;
         idChaveEstrangeira = 1L;
-        contagemTotalDeFestivais = 9L;
+        contagemTotalDeGeneros = 9L;
         festivalDto = Factory.criarGeneroDto();
     }
 
@@ -61,7 +60,7 @@ public class GeneroServiceTI {
     @Test
     public void inserirDeveriaGravarUmObjetoNoBancoDeDados() {
         GeneroDto resultado = service.inserir(festivalDto); // Retorna - 6L Uruguai
-        Assertions.assertEquals(contagemTotalDeFestivais + 1, repository.count());
+        Assertions.assertEquals(contagemTotalDeGeneros + 1, repository.count());
 //        System.out.println("Quantidade de registros em Genero: " + repository.count());
 //        System.out.println("Registro inserido em Genero: " + resultado);
     }
@@ -83,7 +82,7 @@ public class GeneroServiceTI {
     @Test
     public void excluirDeveriaEliminarUmRegistro() {
         service.excluir(idExistente);
-        Assertions.assertEquals(contagemTotalDeFestivais - 1, repository.count());
+        Assertions.assertEquals(contagemTotalDeGeneros - 1, repository.count());
     }
 
     @Test

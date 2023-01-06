@@ -26,7 +26,7 @@ public class ArtistaServiceTI {
     private Long idExistente;
     private Long idNaoExistente;
     private Long idChaveEstrangeira;
-    private Long contagemTotalDeArtistaes;
+    private Long contagemTotalDeArtistas;
     private ArtistaDto artistaDto;
 
     @BeforeEach
@@ -34,7 +34,7 @@ public class ArtistaServiceTI {
         idExistente = 4L;
         idNaoExistente = 999L;
         idChaveEstrangeira = 1L;
-        contagemTotalDeArtistaes = 4L;
+        contagemTotalDeArtistas = 4L;
         artistaDto = FactoryFK.criarArtistaDto();
     }
 
@@ -60,7 +60,7 @@ public class ArtistaServiceTI {
     @Test
     public void inserirDeveriaGravarUmObjetoNoBancoDeDados() {
         ArtistaDto resultado = service.inserir(artistaDto); // Retorna - 6L Uruguai
-        Assertions.assertEquals(contagemTotalDeArtistaes + 1, repository.count());
+        Assertions.assertEquals(contagemTotalDeArtistas + 1, repository.count());
 //        System.out.println("Quantidade de registros em Artista: " + repository.count());
 //        System.out.println("Registro inserido em Artista: " + resultado);
     }
@@ -82,7 +82,7 @@ public class ArtistaServiceTI {
     @Test
     public void excluirDeveriaEliminarUmRegistro() {
         service.excluir(idExistente);
-        Assertions.assertEquals(contagemTotalDeArtistaes - 1, repository.count());
+        Assertions.assertEquals(contagemTotalDeArtistas - 1, repository.count());
     }
 
     @Test
