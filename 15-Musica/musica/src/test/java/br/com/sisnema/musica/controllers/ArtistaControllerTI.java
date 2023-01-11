@@ -1,7 +1,7 @@
 package br.com.sisnema.musica.controllers;
 
-import br.com.sisnema.musica.dtos.PaisDto;
-import br.com.sisnema.musica.tests.Factory;
+import br.com.sisnema.musica.dtos.ArtistaDto;
+import br.com.sisnema.musica.tests.FactoryFK;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @Transactional
-public class PaisControllerTI {
+public class ArtistaControllerTI {
 
     @Autowired
     private MockMvc mockMvc;
@@ -41,7 +41,7 @@ public class PaisControllerTI {
     public void procurarTodosDeveriaRetornarUmaListaDeDtos() throws Exception {
 
         ResultActions resultado = mockMvc.perform(
-                get("/paises")
+                get("/artistas")
                 .accept(MediaType.APPLICATION_JSON)
         );
 
@@ -51,7 +51,7 @@ public class PaisControllerTI {
     @Test
     public void procurarPorIdDeveriaRetornarUmDtoQuandoOIdExistir() throws Exception {
         ResultActions resultado = mockMvc.perform(
-                get("/paises/{id}", idExistente)
+                get("/artistas/{id}", idExistente)
                 .accept(MediaType.APPLICATION_JSON)
         );
         resultado.andExpect(status().isOk()); // HTTP Code 200
@@ -60,7 +60,7 @@ public class PaisControllerTI {
     @Test
     public void procurarPorIdDeveriaRetornarUm404QuandoOIdNaoExistir() throws Exception {
         ResultActions resultado = mockMvc.perform(
-                get("/paises/{id}", idNaoExistente)
+                get("/artistas/{id}", idNaoExistente)
                         .accept(MediaType.APPLICATION_JSON)
         );
         resultado.andExpect(status().isNotFound()); // HTTP Code 204
@@ -69,10 +69,10 @@ public class PaisControllerTI {
     @Test
     public void inserirDeveriaRetornarUmObjetoDto() throws Exception {
 
-        PaisDto dto = Factory.criarPaisDto();
+        ArtistaDto dto = FactoryFK.criarArtistaDto();
         String jsonBody = objectMapper.writeValueAsString(dto);
 
-        ResultActions resultado = mockMvc.perform(post("/paises")
+        ResultActions resultado = mockMvc.perform(post("/artistas")
                 .content(jsonBody)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON));
@@ -83,10 +83,10 @@ public class PaisControllerTI {
     @Test
     public void atualizarDeveriaRetornarUmObjetoDto() throws Exception {
 
-        PaisDto dto = Factory.criarPaisDto();
+        ArtistaDto dto = FactoryFK.criarArtistaDto();
         String jsonBody = objectMapper.writeValueAsString(dto);
 
-        ResultActions resultado = mockMvc.perform(put("/paises/{id}", idExistente)
+        ResultActions resultado = mockMvc.perform(put("/artistas/{id}", idExistente)
                 .content(jsonBody)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON));
@@ -99,10 +99,10 @@ public class PaisControllerTI {
     @Test
     public void atualizarDeveriaRetornarUm404IdNãoExistente() throws Exception {
 
-        PaisDto dto = Factory.criarPaisDto();
+        ArtistaDto dto = FactoryFK.criarArtistaDto();
         String jsonBody = objectMapper.writeValueAsString(dto);
 
-        ResultActions resultado = mockMvc.perform(put("/paises/{id}", idNaoExistente)
+        ResultActions resultado = mockMvc.perform(put("/artistas/{id}", idNaoExistente)
                 .content(jsonBody)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON));
@@ -113,7 +113,7 @@ public class PaisControllerTI {
     @Test
     public void excluirPorIdDeveriaRetornarUm204QuandoOIdExistir() throws Exception {
         ResultActions resultado = mockMvc.perform(
-                delete("/paises/{id}", idExistente)
+                delete("/artistas/{id}", idExistente)
                 .accept(MediaType.APPLICATION_JSON)
         );
         resultado.andExpect(status().isNoContent());
@@ -122,7 +122,7 @@ public class PaisControllerTI {
     @Test
     public void excluirPorIdDeveriaRetornarUm404QuandoOIdNaoExistir() throws Exception {
         ResultActions resultado = mockMvc.perform(
-                delete("/paises/{id}", idNaoExistente)
+                delete("/artistas/{id}", idNaoExistente)
                 .accept(MediaType.APPLICATION_JSON)
         );
         resultado.andExpect(status().isNotFound());

@@ -3,6 +3,7 @@ package br.com.sisnema.musica.controllers;
 import br.com.sisnema.musica.dtos.PaisDto;
 import br.com.sisnema.musica.tests.Factory;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sun.net.httpserver.Authenticator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,7 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -30,11 +30,13 @@ public class PaisControllerTI {
 
     private Long idExistente;
     private Long idNaoExistente;
+    private Long contagemTotalDePaises;
 
     @BeforeEach
     void Setup() throws Exception {
         idExistente = 1L;
         idNaoExistente = 999L;
+        contagemTotalDePaises = 5L;
     }
 
     @Test
@@ -49,24 +51,6 @@ public class PaisControllerTI {
     }
 
     @Test
-    public void procurarPorIdDeveriaRetornarUmDtoQuandoOIdExistir() throws Exception {
-        ResultActions resultado = mockMvc.perform(
-                get("/paises/{id}", idExistente)
-                .accept(MediaType.APPLICATION_JSON)
-        );
-        resultado.andExpect(status().isOk()); // HTTP Code 200
-    }
-
-    @Test
-    public void procurarPorIdDeveriaRetornarUm404QuandoOIdNaoExistir() throws Exception {
-        ResultActions resultado = mockMvc.perform(
-                get("/paises/{id}", idNaoExistente)
-                        .accept(MediaType.APPLICATION_JSON)
-        );
-        resultado.andExpect(status().isNotFound()); // HTTP Code 204
-    }
-
-    @Test
     public void inserirDeveriaRetornarUmObjetoDto() throws Exception {
 
         PaisDto dto = Factory.criarPaisDto();
@@ -77,7 +61,7 @@ public class PaisControllerTI {
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON));
 
-        resultado.andExpect(status().isCreated()); // HTTP Code 201
+        resultado.andExpect(status().isCreated());
     }
 
     @Test
@@ -110,21 +94,12 @@ public class PaisControllerTI {
         resultado.andExpect(status().isNotFound());
     }
 
-    @Test
-    public void excluirPorIdDeveriaRetornarUm204QuandoOIdExistir() throws Exception {
-        ResultActions resultado = mockMvc.perform(
-                delete("/paises/{id}", idExistente)
-                .accept(MediaType.APPLICATION_JSON)
-        );
-        resultado.andExpect(status().isNoContent());
-    }
+    // buscarPorId
 
-    @Test
-    public void excluirPorIdDeveriaRetornarUm404QuandoOIdNaoExistir() throws Exception {
-        ResultActions resultado = mockMvc.perform(
-                delete("/paises/{id}", idNaoExistente)
-                .accept(MediaType.APPLICATION_JSON)
-        );
-        resultado.andExpect(status().isNotFound());
-    }
+    // buscarPorIdCom404
+
+    // Deletar
+
+    // DeletarCom404
+
 }

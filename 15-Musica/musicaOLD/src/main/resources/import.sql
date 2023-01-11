@@ -1,15 +1,3 @@
-INSERT INTO tabela_funcao (autoridade) VALUES ('ROLE_ADMIN');
-INSERT INTO tabela_funcao (autoridade) VALUES ('ROLE_OPERATOR');
-
-INSERT INTO tabela_usuario (nome, sobrenome, email, senha) VALUES ('Airton', 'Senna', 'senna@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
-INSERT INTO tabela_usuario (nome, sobrenome, email, senha) VALUES ('Alain', 'Prost', 'prost@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
-INSERT INTO tabela_usuario (nome, sobrenome, email, senha) VALUES ('Rubens', 'Barrichello', 'rb@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
-
-INSERT INTO tabela_usuario_funcao (usuario_id, funcao_id) VALUES (1L, 1L);
-INSERT INTO tabela_usuario_funcao (usuario_id, funcao_id) VALUES (1L, 2L);
-INSERT INTO tabela_usuario_funcao (usuario_id, funcao_id) VALUES (2L, 2L);
-INSERT INTO tabela_usuario_funcao (usuario_id, funcao_id) VALUES (3L, 2L);
-
 INSERT INTO tabela_pais (nome) VALUES ('Estados Unidos');
 INSERT INTO tabela_pais (nome) VALUES ('Brasil');
 INSERT INTO tabela_pais (nome) VALUES ('Inglaterra');
