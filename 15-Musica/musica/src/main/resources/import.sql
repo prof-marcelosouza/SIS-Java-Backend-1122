@@ -1,6 +1,7 @@
 INSERT INTO tabela_funcao (autoridade) VALUES ('ROLE_ADMIN');
 INSERT INTO tabela_funcao (autoridade) VALUES ('ROLE_OPERATOR');
 
+--SENHA = 123456
 INSERT INTO tabela_usuario (nome, sobrenome, email, senha) VALUES ('Airton', 'Senna', 'senna@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
 INSERT INTO tabela_usuario (nome, sobrenome, email, senha) VALUES ('Alain', 'Prost', 'prost@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
 INSERT INTO tabela_usuario (nome, sobrenome, email, senha) VALUES ('Rubens', 'Barrichello', 'rb@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
